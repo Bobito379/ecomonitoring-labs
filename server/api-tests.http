@@ -1,0 +1,74 @@
+### Air Quality - Create record
+POST http://localhost:3000/api/air-quality
+Content-Type: application/json
+
+{
+  "station_name": "Station 1",
+  "city_name": "Kyiv",
+  "pm25": 25.3,
+  "pm10": 35.2,
+  "no2": 15.5,
+  "measurement_time": "2025-11-26"
+}
+
+###
+### Air Quality - Get all records
+GET http://localhost:3000/api/air-quality
+
+###
+### Air Quality - Get record by ID
+GET http://localhost:3000/api/air-quality/{id}
+
+###
+### Air Quality - Update record
+PUT http://localhost:3000/api/air-quality/{id}
+Content-Type: application/json
+
+{
+  "pm25": 30.5,
+  "no2": 20.1
+}
+
+###
+### Air Quality - Delete record
+DELETE http://localhost:3000/api/air-quality/{id}
+
+###
+### Water Quality - Create record
+POST http://localhost:3000/api/water-quality
+Content-Type: application/json
+
+{
+  "station_name": "Station A",
+  "location": "Dnieper River, Kyiv",
+  "ph_level": 7.2,
+  "dissolved_oxygen": 8.5,
+  "temperature": 15.3,
+  "measurement_time": "2025-11-26"
+}
+
+###
+### Water Quality - Get all records
+GET http://localhost:3000/api/water-quality
+
+###
+### Water Quality - Get record by ID
+GET http://localhost:3000/api/water-quality/{id}
+
+###
+### Water Quality - Update record
+PUT http://localhost:3000/api/water-quality/{id}
+Content-Type: application/json
+
+{
+  "ph_level": 7.5,
+  "dissolved_oxygen": 9.0
+}
+
+###
+### Water Quality - Delete record
+DELETE http://localhost:3000/api/water-quality/{id}
+
+###
+### API Info
+GET http://localhost:3000/api

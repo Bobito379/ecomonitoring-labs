@@ -1,0 +1,27 @@
+.tab-btn {
+  padding: 12px 30px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.tab-btn.active {
+  background-color: white;
+  color: #667eea;
+}
+
+@media (max-width: 768px) {
+  .tab-btn {
+    width: 100%;
+  }
+}
