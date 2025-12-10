@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AirQualityPage from './pages/AirQualityPage';
 import WaterQualityPage from './pages/WaterQualityPage';
+import AnomalyDetectionPage from './pages/AnomalyDetectionPage';
 import Header from './components/ui/Header/Header';
 import TabButton from './components/ui/TabButton/TabButton';
 import './index.css';
@@ -23,11 +24,18 @@ function App() {
         >
           Якість води
         </TabButton>
+        <TabButton 
+          active={activeTab === 'anomaly'}
+          onClick={() => setActiveTab('anomaly')}
+        >
+          Виявлення аномалій
+        </TabButton>
       </Header>
       
       <main className="main-content">
         {activeTab === 'air' && <AirQualityPage />}
         {activeTab === 'water' && <WaterQualityPage />}
+        {activeTab === 'anomaly' && <AnomalyDetectionPage />}
       </main>
     </div>
   );

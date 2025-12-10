@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import airQualityRoutes from './routes/airQualityRoutes.js';
 import waterQualityRoutes from './routes/waterQualityRoutes.js';
+import anomalyDetectionRoutes from './routes/anomalyDetectionRoutes.js';
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(cors());
 
 app.use('/api/air-quality', airQualityRoutes);
 app.use('/api/water-quality', waterQualityRoutes);
+app.use('/api/anomaly-detection', anomalyDetectionRoutes);
 
 app.use((req, res) => {
   res.status(404).json({

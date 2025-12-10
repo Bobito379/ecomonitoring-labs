@@ -1,0 +1,60 @@
+### Anomaly Detection API Tests
+
+@baseUrl = http://localhost:3000/api
+
+### 1. Detect anomalies with synthetic data
+POST {{baseUrl}}/anomaly-detection/detect
+Content-Type: application/json
+
+{
+  "stationId": "Station-Kyiv-Center",
+  "pollutant": "PM2.5",
+  "windowSize": 120,
+  "thresholdMultiplier": 3,
+  "minEventDuration": 10,
+  "timeSeries": [
+    {"timestamp": "2025-12-10T00:00:00Z", "value": 25.5},
+    {"timestamp": "2025-12-10T00:15:00Z", "value": 27.3},
+    {"timestamp": "2025-12-10T00:30:00Z", "value": 23.1},
+    {"timestamp": "2025-12-10T00:45:00Z", "value": 150.5},
+    {"timestamp": "2025-12-10T01:00:00Z", "value": 145.2},
+    {"timestamp": "2025-12-10T01:15:00Z", "value": 28.4},
+    {"timestamp": "2025-12-10T01:30:00Z", "value": 26.1}
+  ]
+}
+
+### 2. Get all anomaly records
+GET {{baseUrl}}/anomaly-detection/
+
+### 3. Get anomaly records filtered by pollutant
+GET {{baseUrl}}/anomaly-detection/?pollutant=PM2.5
+
+### 4. Get anomaly records filtered by station
+GET {{baseUrl}}/anomaly-detection/?stationId=Station-Kyiv-Center
+
+### 5. Get specific anomaly by ID (replace with actual ID)
+GET {{baseUrl}}/anomaly-detection/675827a3b4c5d6e7f8901234
+
+### 6. Get time series data for anomaly (replace with actual ID)
+GET {{baseUrl}}/anomaly-detection/675827a3b4c5d6e7f8901234/timeseries
+
+### 7. Delete anomaly record (replace with actual ID)
+DELETE {{baseUrl}}/anomaly-detection/675827a3b4c5d6e7f8901234
+
+### 8. Test validation - missing required fields
+POST {{baseUrl}}/anomaly-detection/detect
+Content-Type: application/json
+
+{
+  "stationId": "Station-Test"
+}
+
+### 9. Test validation - invalid pollutant
+POST {{baseUrl}}/anomaly-detection/detect
+Content-Type: application/json
+
+{
+  "stationId": "Station-Test",
+  "pollutant": "INVALID",
+  "timeSeries": []
+}
